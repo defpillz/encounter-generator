@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
+
+/*
+TODO: Add more surnames
+TODO: prevent duplicate adjectives
+TODO: prevent multiple regional & racial adjectives
+ */
+
 export class WordService {
   //#region word bank
   private _paizoEthnicities = [
@@ -308,7 +315,7 @@ export class WordService {
     'Zale',
   ];
   private _firstNames = this._femaleNames.concat(this._maleNames);
-  private _lastNames = [
+  private _surnames = [
     'Bennington',
     'Wellington',
   ];
@@ -470,7 +477,7 @@ export class WordService {
   }
 
   getName = () => {
-    return `"${this.getRandomString(this._firstNames)} ${this.getRandomString(this._lastNames)}
+    return `"${this.getRandomString(this._firstNames)} ${this.getRandomString(this._surnames)}
      the ${this.getRandomString(this._nameVerbs)} of ${this.getRandomString(this._nameObjects)}"`;
   }
 
