@@ -18,7 +18,7 @@ export class AppComponent {
     this.encounter = `The party must ${this.wordService.getVerb()} ${this.determineAorAn(this.ojectOrCreature())} in 
     the ${this.wordService.getObjectAdjective()} ${this.wordService.getLocation()}
     but they are ${this.wordService.getInterruption()} ${this.determineAorAn(this.wordService.getAdjective())}
-     ${this.getCreature()}.`;
+     ${this.getCreature()} named ${this.wordService.getName()} who wields the ${this.getUniqueGear()}.`;
   }
 
   getCreature(): string {
@@ -29,6 +29,10 @@ export class AppComponent {
     return Math.random() % 2 == 0 ?
       `${this.wordService.getObjectAdjective()} ${this.wordService.getObject()}` :
       `${this.wordService.getAdjective()} ${this.wordService.getCreature()}`;
+  }
+
+  getUniqueGear(): string {
+    return `${this.wordService.getObjectAdjective()} ${this.wordService.getGear()} of ${this.wordService.getNameObjects().toLowerCase()}`;
   }
 
   startsWithVowel(str: string): boolean {

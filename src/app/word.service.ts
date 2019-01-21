@@ -91,8 +91,10 @@ export class WordService {
     'mysterious',
     'necromantic',
     'obsessive',
+    'offensive',
     'old',
     'phase-shifting',
+    'plain',
     'plane-hopping',
     'poisonous',
     'polymorphed',
@@ -138,6 +140,7 @@ export class WordService {
     'greedy',
     'hedonistic',
     'hypochondriac',
+    'immoral',
     'impartial',
     'insane',
     'judgemental',
@@ -196,7 +199,7 @@ export class WordService {
     'deliver',
     'duel',
     'engage in fistacuffs against',
-    'engage in ship combat against',
+    'engage in ship to ship combat against',
     'escape from',
     'escort',
     'fight',
@@ -220,21 +223,132 @@ export class WordService {
     'transport',
     'win a verbal duel against'
   ];
-  private _objects = [
+  private _gear = [
     'armor',
+    'bow',
+    'crown',
+    'hammer',
+    'holy symbol',
+    'shield',
+    'staff',
+    'sword'
+  ];
+  //#region names
+  private _femaleNames = [
+    'Annabel',
+    'Astrid',
+    'Coraline',
+    'Ember',
+    'Freyja',
+    'Gillian',
+    'Gwendolyn',
+    'Ingrid',
+    'Jean',
+    'Louise',
+    'Lydia',
+    'Marceline',
+    'Moira',
+    'Muriel',
+    'Nyx',
+    'Odette',
+    'Ophelia',
+    'Persephone',
+    'Rona',
+    'Ruby',
+    'Winifred',
+  ];
+  private _maleNames = [
+    'Alastair',
+    'Aldus',
+    'Allan',
+    'Amadeus',
+    'Archibald',
+    'Arthur',
+    'Artorious',
+    'Ash',
+    'Atticus',
+    'Augustus',
+    'Axton',
+    'Baldric',
+    'Baldur',
+    'Barrington',
+    'Beef',
+    'Bertram',
+    'Bram',
+    'Brant',
+    'Caesar',
+    'Chester',
+    'Darius',
+    'Dax',
+    'Edmund',
+    'Ferdinand',
+    'Gerard',
+    'Gerhardt',
+    'Gregor',
+    'Griswold',
+    'Gustav',
+    'Isaac',
+    'Lincoln',
+    'Magnus',
+    'Marius',
+    'Mortimer',
+    'Oswald',
+    'Perseus',
+    'Quill',
+    'Quillon',
+    'Rowan',
+    'Theobald',
+    'Theodore',
+    'Tiberius',
+    'Tristram',
+    'Ulrich',
+    'Uther',
+    'Walter',
+    'Wendell',
+    'Zale',
+  ];
+  private _firstNames = this._femaleNames.concat(this._maleNames);
+  private _lastNames = [
+    'Bennington',
+    'Wellington',
+  ];
+  private _nameVerbs = [
+    'Constructor',
+    'Destroyer',
+    'Eater',
+    'Harbinger',
+    'Judge',
+    'Lord',
+    'Lover',
+    'Orchestrator',
+    'Prince',
+    'Procurer',
+    'Reaper',
+    'Taster',
+  ];
+  private _nameObjects = [
+    'Fear',
+    'Flames',
+    'Hell',
+    'Magic',
+    'Pain',
+    'Power',
+    'Sins',
+    'Souls',
+    'Terror',
+  ];
+  //#endregion
+  private _objects = this._gear.concat([
     'card',
     'castle',
     'coin',
     'corpse',
-    'crown',
     'crystal',
     'forge',
-    'hammer',
-    'holy symbol',
     'shrine',
     'skull',
     'tankard',
-  ];
+  ]);
   private _creatures = ['Aasimar', 'Aboleth', 'Astral Deva Angel', 'Planetar Angel', 'Solar Angel',
     'Animated Object', 'Ankheg', 'Giant Ant', 'Army Ant Swarm', 'Ape', 'Dire Ape', 'Gorilla',
     'Archon', 'Hound Archon', 'Lantern Archon', 'Trumpet Archon', 'Assassin Vine',
@@ -341,6 +455,23 @@ export class WordService {
 
   getClass = () => {
     return this.getRandomString(this._classes);
+  }
+
+  getGear = () => {
+    return this.getRandomString(this._gear);
+  }
+
+  getNameVerbs = () => {
+    return this.getRandomString(this._nameVerbs);
+  }
+
+  getNameObjects = () => {
+    return this.getRandomString(this._nameObjects);
+  }
+
+  getName = () => {
+    return `"${this.getRandomString(this._firstNames)} ${this.getRandomString(this._lastNames)}
+     the ${this.getRandomString(this._nameVerbs)} of ${this.getRandomString(this._nameObjects)}"`;
   }
 
   getObjectAdjective = () => {
