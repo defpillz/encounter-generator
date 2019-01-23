@@ -5,9 +5,7 @@ import { Injectable } from '@angular/core';
 })
 
 /*
-TODO: Add more surnames
 TODO: prevent duplicate adjectives
-TODO: prevent multiple regional & racial adjectives
  */
 
 export class WordService {
@@ -35,7 +33,7 @@ export class WordService {
     'gnomish',
     'goblinoid'
   ];
-  private _objectAdjectives = this._paizoEthnicities.concat(this._paizoRacial).concat([
+  private _objectAdjectives = [
     'adamantine',
     'adhesive',
     'amorphous',
@@ -131,7 +129,7 @@ export class WordService {
     'wilted',
     'wooden',
     'young'
-  ]);
+  ];
   private _adjectives = this._objectAdjectives.concat([
     'addicted',
     'adolescent',
@@ -383,6 +381,7 @@ export class WordService {
     'Guardian',
     'Harbinger',
     'Hunter',
+    'Instrument',
     'Judge',
     'Keeper',
     'Lord',
@@ -676,9 +675,9 @@ export class WordService {
   getObjectAdjective = () => {
     let num = Math.random();
     return num > .95 ?
-      `${this.getRandomString(this._objectAdjectives)}, ${this.getRandomString(this._objectAdjectives)}, ${this.getRandomString(this._objectAdjectives)}` :
+      `${this.getRandomString(this._paizoRacial)}, ${this.getRandomString(this._paizoEthnicities)}, ${this.getRandomString(this._objectAdjectives)}` :
       num > .65 ?
-        `${this.getRandomString(this._objectAdjectives)}, ${this.getRandomString(this._objectAdjectives)}` :
+        `${this.getRandomString(this._paizoEthnicities)}, ${this.getRandomString(this._objectAdjectives)}` :
         this.getRandomString(this._objectAdjectives);
   }
 
